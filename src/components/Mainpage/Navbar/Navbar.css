@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Krona+One&display=swap');
+
+.navbar {
+  display: grid;
+  grid-template-columns:  1fr auto; 
+  align-items: center;
+  background-color: #ECBD35;
+  height: 80px;
+  font-family: "Inter", sans-serif;
+  padding: 24px 16px;
+}
+
+
+.leftSide {
+  grid-column: 1;
+  font-size: 35px;
+  display: flex;
+}
+
+.app-name {
+  font-size: 28px;
+  font-family: "Kanit", sans-serif;
+  display: flex;          
+  gap: 9px;
+  font-size: 35px;
+}
+
+.name-word {
+  color: #ECBD35;
+  -webkit-text-stroke: 1px black
+}
+
+.name-word2{
+    color: black;
+}
+
+.rightSide {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+
+
+.signup {
+  border: 2px solid white;       /* กรอบสีขาว */
+  border-radius: 20px;           /* ขอบมนแบบวงรี */
+  padding: 6px ;             /* ระยะห่างภายใน */
+  background-color: white; /* ไม่มีพื้นหลัง */
+  color: black;                  /* สีข้อความ */
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none; /* ซ่อนไว้เมื่อจอเล็ก */
+  }
+
+  .menu-icon {
+    display: block; /* แสดงเฉพาะไอคอน */
+    margin-left: auto; /* ดันไปขวาสุด */
+    font-size: 28px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Thunder Ride ซ้าย, ไอคอน ขวา */
+    align-items: center;
+    padding: 8px 16px;
+    height: 80px;
+  }
+
+  .app-name {
+    margin-top: 20px;
+  }
+
+  .leftSide {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    justify-content: flex-end;
+    display: flex;
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .rightSide {
+    justify-content: flex-end;
+    display: flex;
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+}
+
+
+@media screen and (max-width: 420px) {
+    .nav-links {
+    display: none; /* ซ่อนลิงก์ */
+    }
+
+    .menu-icon {
+        display: flex;
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.ride-container {
+  font-family: "Inter", sans-serif;
+  color: black;
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.ride-header {
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+.ride-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ride-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 2px solid #E5E5E5;     /* กรอบสีเทาอ่อน */
+  border-radius: 12px;
+  padding: 8px 12px;
+  background-color: #E5E5E5;        /* พื้นหลังขาว */
+}
+
+.input-group .icon {
+  font-size: 20px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px 0;
+  background-color: #E5E5E5; /* สีเทาอ่อน */
+  color: #000;               /* สีข้อความ */
+}
+
+
+.yellow-icon {
+  color: #ECBD35;                /* สีเหลืองของไอคอน */
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+.detect-btn {
+  background-color: #ECBD35;     /* สีเหลือง */
+  border: none;
+  border-radius: 50px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detect-btn i {
+  font-size: 16px;
+  color: white;
+}
+
+.detect-btn,
+.option-btn {
+  background-color: #ECBD35;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.confirm-btn {
+  background-color: #ECBD35;
+  width: 89px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.promo {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.promo img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding: 48px 24px;
+  font-family: "Inter", sans-serif;
+  color: #1f1f1f;
+}
+
+/* ทุก section ใช้ layout แบบเดียวกัน */
+.driver-section,
+.rider-section,
+.become-driver-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* สลับฝั่งภาพสำหรับบาง section */
+.rider-section {
+  flex-direction: row-reverse;
+}
+
+/* ภาพโปรโมต */
+.section-img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* กล่องข้อความ */
+.driver-text,
+.rider-text,
+.become-driver-text {
+  flex: 1;
+}
+
+.driver-text h2,
+.rider-text h2,
+.become-driver-text h2,
+.safety-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.driver-text p,
+.rider-text p,
+.become-driver-text p,
+.safety-section p {
+  padding-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* ปุ่มหลัก */
+.primary-btn  {
+  background-color: #ECBD35;
+  width: 89px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.action-row1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;           /* ระยะห่างระหว่างปุ่มกับลิงก์ */
+  margin-top: 12px;    /* ระยะห่างจากรูปภาพ */
+} 
+.primary-btn1{
+  background-color: #ECBD35;
+  width: 89px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.link-text1 {
+  margin-top: 0;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.primary-btn:hover {
+  background-color: #e0b000;
+}
+
+/* ลิงก์ใต้ปุ่ม */
+.link-text {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.link-text a {
+  color: #616161;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* ส่วนความปลอดภัย */
+.safety-section {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px 16px;
+  border-radius: 16px;
+}
+
+
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* ระยะห่างระหว่างปุ่มกับลิงก์ */
+  margin-top: 8px;
+}
+
+.action-row .primary-btn {
+  margin-top: 0; /* ลบ margin เดิมที่ดันลง */
+}
+
+.action-row .link-text {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+
+
+
+
+@media screen and (max-width: 420px) {
+  .driver-section,
+  .rider-section,
+  .become-driver-section {
+    padding-left: 25px;
+    flex-direction: column;
+  }
+
+  .primary-btn {
+    width: auto;
+  }
+
+  .ride-header {
+    grid-column: 1;
+    font-size: 35px;
+    display: flex;
+  }
+
+  .safety-section {
+    display: block;            /* ยกเลิก flex ที่อาจทำให้จัดกลาง */
+    text-align: left;          /* ชิดซ้ายข้อความ */
+    margin: 0;                 /* ยกเลิก margin auto */
+    transform: translateX(-10px); 
+    
+  }
+
+}
