@@ -20,7 +20,11 @@
 =======
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
+<<<<<<< HEAD
 >>>>>>> 38bbdcab97863080ed2b758f6f9934060dbf9445
+=======
+    "@tailwindcss/vite": "^4.1.14",
+>>>>>>> cbe9ce76336f1f440f848b455fc65391744bac81
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "dotenv": "^17.2.3",

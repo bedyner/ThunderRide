@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -50,8 +51,20 @@ import Previous from "./pages/User/Passenger/Previous";
 >>>>>>> 38bbdcab97863080ed2b758f6f9934060dbf9445
 
 
+=======
+import { useState } from 'react';
+
+import'.//App.css'
+
+import './index.css'
+import './output.css';
+import MainApp from './component/MainApp';
+>>>>>>> cbe9ce76336f1f440f848b455fc65391744bac81
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <BrowserRouter>
       <Routes>
@@ -124,6 +137,14 @@ function App() {
 
    </>
 >>>>>>> 38bbdcab97863080ed2b758f6f9934060dbf9445
+=======
+    <>
+
+      <MainApp/>
+    
+
+    </>
+>>>>>>> cbe9ce76336f1f440f848b455fc65391744bac81
   );
 }
 
