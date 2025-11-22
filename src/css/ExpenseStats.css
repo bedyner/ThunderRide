@@ -1,0 +1,127 @@
+.stats-container {
+  padding: 24px;
+  background-color: #f9fafb;
+  font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+  color: #111827;
+}
+
+/* Header */
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.stats-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-icon {
+  color: #6b7280;
+}
+
+/* Tabs */
+.stats-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 6px 12px;
+  border: none;
+  background-color: #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #facc15;
+  font-weight: bold;
+}
+
+/* Graph */
+.stats-graph {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.graph-placeholder {
+  height: 180px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.graph-label {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #facc15;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Recent Customers */
+.stats-recent h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.customer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-left: -15px;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.customer-time {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.customer-amount {
+  font-size: 18px;
+  font-weight: 500;
+  color: #10b981;
+}

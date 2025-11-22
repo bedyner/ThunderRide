@@ -13,7 +13,12 @@ import { EarnPage } from './pages/forms/EarnPage';
 import { VehicleForm } from './pages/forms/VehicleForm';
 import { LegalForm } from './pages/forms/LegalForm';
 import { Upload } from './pages/forms/Upload';
-import BillType  from './pages/forms/BillType';
+import { BankPage } from './pages/forms/BankPage';
+import DriverDashboard from './pages/main/DriverDashboard';
+import DriverPickup  from './pages/main/DriverPickup';
+import ChatScreen from './pages/main/ChatScreen';
+import ExpenseStats from './pages/main/ExpenseStats';
+import ProfileScreen from './pages/main/ProfileScreen';
 
 
 function App() {
@@ -39,7 +44,17 @@ function App() {
         
         <Route path="/form3" element={<Upload/>} />
 
-        <Route path="/form4" element={<BillType/>} />
+        <Route path="/form4" element={<BankPage/>} />
+
+        <Route path="/dashboard" element={<DriverDashboard />} />
+
+        <Route path="/driver-profile" element={<ProfileScreen/>} />
+
+        <Route path="/driver-pickup" element={<DriverPickup/>} />
+
+        <Route path="/chat" element={<ChatScreen />} />
+
+        <Route path="/expense-stats" element={<ExpenseStats />} />
 
 
       </Routes>

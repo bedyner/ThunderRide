@@ -1,0 +1,316 @@
+.dashboard-container {
+   position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
+  overflow: hidden;
+  font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+}
+
+.map-area {
+  height: 100%;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+/* ปุ่มสวิตช์ออนไลน์แบบลอย */
+.status-floating {
+  display: flex;
+  justify-content: space-between; /* ซ้าย-ขวา */
+  align-items: center;
+  padding: 12px 16px;
+  margin-top: -20px; 
+  margin-bottom: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.status-label {
+  font-size: 19px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* แถบ pop-up สีดำ */
+.driver-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+  background-color: #f8f8f8;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -6px 16px rgba(209, 209, 209, 0.6);
+  transition: transform 0.3s ease;
+  padding: 24px 16px;
+  z-index: 999
+}
+
+
+
+/* ปิดอยู่ล่าง */
+.driver-panel.closed {
+  transform: translateY(70%);
+}
+
+/* เปิดขึ้น */
+.driver-panel.open {
+  transform: translateY(0%);
+}
+
+/* ปุ่ม toggle บน panel */
+.panel-toggle {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #10b981;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+/* ข้อมูลคนขับใน panel สีขาว */
+.driver-info {
+  padding: 0 16px;
+  color: #050505;
+}
+
+.driver-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.avatar {
+  flex-shrink: 0;
+  margin-top: -5px;
+}
+
+.driver-details {
+  flex-grow: 1;
+  margin-left: 12px;
+  margin-top: -24px;
+}
+
+.driver-details h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.driver-details p {
+  margin: 2px 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.driver-rating {
+  flex-shrink: 0;
+  text-align: right;
+  margin-top: -50px;
+}
+
+.driver-rating p {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f59e0b; /* สีทอง */
+}
+
+/* ข้อมูลรถ */
+.vehicle-info {
+  padding: 0 16px;
+  color: #050505;
+}
+
+.cardetail {
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-left: 90px;
+}
+
+.cardetail p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.cardetail h1   {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cardetail h4 {
+  font-size: 18px;
+  font-weight: 500;
+    color: #5C5C5C;
+}
+
+/* Avatar มุมขวาบน */
+.top-right-avatar {
+    position: fixed;
+    top: 50px;
+    right: 35px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.searching-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35); /* มืดลงนิดหน่อย */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.searching-popup {
+  position: relative; 
+  background-color: #ffffff;
+  padding: 24px 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+}
+
+.icon svg {
+  font-size: 24px;
+  color: #6b7280;
+}
+
+
+/* ปุ่มกดยกเลิก */
+
+.cancel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.cancel-popup {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 80%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.cancel-message {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.cancel-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.keep-btn {
+  flex: 1;
+  padding: 10px;
+  background-color: #e5e7eb;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 10px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.accept-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.accept-popup {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 80%;
+  max-width: 320px;
+  text-align: center;
+  position: relative;
+}
+
+.accept-avatar {
+  margin-bottom: 12px;
+}
+
+.accept-details h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.accept-details .distance {
+  font-size: 16px;
+  color: #10b981;
+  margin-top: 4px;
+}
+
+.accept-btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
