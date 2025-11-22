@@ -12,18 +12,29 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+<<<<<<< HEAD
     "@mui/icons-material": "^7.3.5",
     "@mui/material": "^7.3.5",
     "@tailwindcss/vite": "^4.1.16",
     "axios": "^1.13.2",
+=======
+    "@mui/icons-material": "^7.3.4",
+    "@mui/material": "^7.3.4",
+>>>>>>> 38bbdcab97863080ed2b758f6f9934060dbf9445
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongoose": "^8.19.1",
     "react": "^19.1.1",
+<<<<<<< HEAD
     "react-dom": "^19.1.1",
     "react-router": "^7.9.4",
+=======
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.1",
+    "react-pro-sidebar": "^1.1.0",
+>>>>>>> 38bbdcab97863080ed2b758f6f9934060dbf9445
     "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
