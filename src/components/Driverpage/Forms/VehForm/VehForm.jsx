@@ -38,7 +38,7 @@ const VehForm = () => {
     console.log("Submitted Vehicle Data:", payload);
 
     // ✅ ไปหน้าใหม่หลังจาก submit
-    navigate("/form2");
+    navigate("/form3"); // Navigate to Upload
   };
 
   return (

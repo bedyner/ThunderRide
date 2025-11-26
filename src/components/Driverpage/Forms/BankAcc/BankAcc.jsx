@@ -17,9 +17,31 @@ export default function BankAcc() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validation checks
+    if (!form.ownerName.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!form.address.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!form.accountNumber.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!form.bankNameOrSwift.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    // All validation passed
     console.log("Submitted form:", form);
-    alert("ส่งข้อมูลเรียบร้อย (เดโม)!");
-    navigate("/next-step");
+    navigate("/form2"); // Navigate to LegalForm
   };
 
   return (

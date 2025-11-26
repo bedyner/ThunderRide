@@ -16,7 +16,7 @@ function Navbar() {
             <div className="rightSide">
                 <div className="nav-links">
                     <Link to = "/Login">Login</Link>
-                    <Link to = "/Signup" className="signup">Sign up</Link>
+                    <Link to = "/Signup" className="signup">Singup</Link>
                 </div>
                 <button className="menu-icon">
                     <ReorderIcon/>

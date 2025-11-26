@@ -1,0 +1,121 @@
+.rejected-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+}
+
+.rejected-header {
+  width: 100%;
+  height: 80px;
+  background-color: #ECBD35;
+  flex-shrink: 0;
+}
+
+.rejected-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.rejected-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #dc2626;
+  margin: 0 0 24px 0;
+}
+
+.rejected-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f2937;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 400px;
+}
+
+.rejected-footer {
+  padding: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.back-button-center {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #1f2937;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-button-center:hover {
+  background-color: #d1d5db;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.back-button-center:active {
+  transform: scale(0.95);
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .rejected-header {
+    height: 70px;
+  }
+
+  .rejected-title {
+    font-size: 24px;
+  }
+
+  .rejected-description {
+    font-size: 15px;
+  }
+
+  .back-button-center {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .rejected-container {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .rejected-header {
+    height: 65px;
+  }
+
+  .rejected-content {
+    padding: 32px 24px;
+  }
+
+  .rejected-title {
+    font-size: 22px;
+  }
+
+  .rejected-description {
+    font-size: 14px;
+  }
+
+  .back-button-center {
+    width: 48px;
+    height: 48px;
+  }
+}

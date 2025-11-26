@@ -26,3 +26,20 @@
     padding-left: 25px;
     font-size: 28px;
 }
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .header {
+    height: 70px;
+  }
+
+  .header .leftSide {
+    font-size: 24px;
+    padding-left: 18px;
+  }
+
+  .app-name {
+    font-size: 24px;
+    padding-left: 18px;
+  }
+}

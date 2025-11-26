@@ -7,6 +7,7 @@ import "../../css/Upload.css";
 import Header from "../../components/Driverpage/common/Header/Header";
 import HelpDropdown from "../../components/Driverpage/common/HelpDropdown/HelpDropdown";
 import DocUp from "../../components/Driverpage/Forms/DocUp/DocUp";
+import { CssBaseline } from '@mui/material';
 
 
 
@@ -22,6 +23,7 @@ export const Upload = () => {
 
         <HelpDropdown/>
 
+        <CssBaseline/>
         <DocUp/>
 
 

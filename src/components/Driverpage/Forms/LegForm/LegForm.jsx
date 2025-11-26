@@ -12,6 +12,25 @@ export default function LegForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+    // Validation checks
+    if (!nationalId.trim() || nationalId.length !== 13) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!licenseNumber.trim() || licenseNumber.length !== 8) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    // If user checked taxi license checkbox, validate taxi license number
+    if (hasTaxiLicense && (!taxiLicenseNumber.trim() || taxiLicenseNumber.length !== 8)) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    // All validation passed
     const payload = {
       nationalId,
       licenseNumber,
@@ -20,7 +39,7 @@ export default function LegForm() {
     };
 
     console.log("Submitted:", payload);
-    navigate("/form3");
+    navigate("/form"); // Navigate to VehicleForm
   }
 
   return (

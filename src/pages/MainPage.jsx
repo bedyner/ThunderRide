@@ -4,7 +4,9 @@ import Footer from "../components/Mainpage/Footer/Footer";
 
 import "./MainPage.css";
 
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import NavigationIcon from "@mui/icons-material/Navigation";
+import CustomLocationIcon from "../components/CustomLocationIcon";
+import CustomDestinationIcon from "../components/CustomDestinationIcon";
 
 import DriverImg from "../images/driver.png";
 
@@ -23,23 +25,21 @@ export const MainPage = () => {
             <section className="ride-form">
             {/* Pickup Location */}
             <div className="input-group">
-                <span className="icon">
-                {" "}
-                <LocationOnIcon />{" "}
+                <span className="icon location-icon">
+                <CustomLocationIcon />
                 </span>
                 <input type="text" placeholder="Pickup Location" />
                 <button className="detect-btn">
-                <i class="bi bi-send-fill"></i>
+                <NavigationIcon />
                 </button>
             </div>
 
             {/* Destination */}
             <div className="input-group">
-                <span className="icon">
-                {" "}
-                <LocationOnIcon />{" "}
+                <span className="icon location-icon">
+                <CustomDestinationIcon />
                 </span>
-                <input type="text" placeholder="Destination" />
+                <input type="text" placeholder="Destinations" />
             </div>
 
             {/* Confirm */}

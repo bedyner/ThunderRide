@@ -37,6 +37,29 @@ export default function Earn() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+    // Validation checks
+    if (!city.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!firstName.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!lastName.trim()) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    if (!mobile.trim() || mobile.length !== 10) {
+      navigate("/application-rejected");
+      return;
+    }
+    
+    // All validation passed
     const payload = {
       city,
       firstName,
@@ -44,7 +67,7 @@ export default function Earn() {
       mobile: `+66${mobile}`
     };
     console.log("Submitted:", payload);
-    navigate("/form"); 
+    navigate("/form4"); // Navigate to BankPage
   }
 
   return (

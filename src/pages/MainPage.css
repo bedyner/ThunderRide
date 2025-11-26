@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 .ride-container {
   font-family: "Inter", sans-serif;
@@ -24,23 +24,27 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-
 }
 
 .input-group {
   display: flex;
   align-items: center;
-  border: 2px solid #E5E5E5;     /* กรอบสีเทาอ่อน */
+  border: none;
   border-radius: 12px;
-  padding: 8px 12px;
-  background-color: #E5E5E5;        /* พื้นหลังขาว */
+  padding: 12px 16px;
+  background-color: #e5e5e5;
+  gap: 8px;
 }
 
 .input-group .icon {
-  font-size: 20px;
-  margin-right: 8px;
+  font-size: 24px;
+  margin-right: 0;
   display: flex;
   align-items: center;
+}
+
+.input-group .location-icon {
+  color: #ecbd35;
 }
 
 .input-group input {
@@ -49,13 +53,12 @@
   outline: none;
   font-size: 14px;
   padding: 6px 0;
-  background-color: #E5E5E5; /* สีเทาอ่อน */
-  color: #000;               /* สีข้อความ */
+  background-color: #e5e5e5; /* สีเทาอ่อน */
+  color: #000; /* สีข้อความ */
 }
 
-
 .yellow-icon {
-  color: #ECBD35;                /* สีเหลืองของไอคอน */
+  color: #ecbd35; /* สีเหลืองของไอคอน */
 }
 
 .input-group input {
@@ -67,23 +70,30 @@
 }
 
 .detect-btn {
-  background-color: #ECBD35;     /* สีเหลือง */
+  background-color: #ecbd35;
   border: none;
-  border-radius: 50px;
-  padding: 6px 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.detect-btn i {
-  font-size: 16px;
+.detect-btn svg {
+  font-size: 20px;
   color: white;
+}
+
+.detect-btn:hover {
+  background-color: #d9a100;
 }
 
 .detect-btn,
 .option-btn {
-  background-color: #ECBD35;
+  background-color: #ecbd35;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
@@ -91,15 +101,24 @@
 }
 
 .confirm-btn {
-  background-color: #ECBD35;
-  width: 89px;
-  height: 30px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
+  background-color: yellow;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #000;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
+.confirm-btn:hover {
+  background-color: #d9a100;
+}
 
 .promo {
   margin-top: 30px;
@@ -110,8 +129,6 @@
   max-width: 100%;
   border-radius: 12px;
 }
-
-
 
 .main-container {
   display: flex;
@@ -174,32 +191,38 @@
 }
 
 /* ปุ่มหลัก */
-.primary-btn  {
-  background-color: #ECBD35;
-  width: 89px;
-  height: 30px;
+.primary-btn {
+  background-color: #ecbd35;
+  border: none;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 3px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .action-row1 {
   display: flex;
   align-items: center;
-  gap: 12px;           /* ระยะห่างระหว่างปุ่มกับลิงก์ */
-  margin-top: 12px;    /* ระยะห่างจากรูปภาพ */
-} 
-.primary-btn1{
-  background-color: #ECBD35;
-  width: 89px;
-  height: 30px;
+  gap: 12px; /* ระยะห่างระหว่างปุ่มกับลิงก์ */
+  margin-top: 12px; /* ระยะห่างจากรูปภาพ */
+}
+.primary-btn1 {
+  background-color: #ecbd35;
+  border: none;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .link-text1 {
@@ -233,7 +256,6 @@
   border-radius: 16px;
 }
 
-
 .action-row {
   display: flex;
   align-items: center;
@@ -249,10 +271,6 @@
   margin-top: 0;
   font-size: 14px;
 }
-
-
-
-
 
 @media screen and (max-width: 420px) {
   .driver-section,
@@ -273,11 +291,56 @@
   }
 
   .safety-section {
-    display: block;            /* ยกเลิก flex ที่อาจทำให้จัดกลาง */
-    text-align: left;          /* ชิดซ้ายข้อความ */
-    margin: 0;                 /* ยกเลิก margin auto */
-    transform: translateX(-10px); 
-    
+    display: block; /* ยกเลิก flex ที่อาจทำให้จัดกลาง */
+    text-align: left; /* ชิดซ้ายข้อความ */
+    margin: 0; /* ยกเลิก margin auto */
+    transform: translateX(-10px);
+  }
+}
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .ride-container {
+    max-width: 390px;
+    padding: 20px 16px;
   }
 
+  .ride-header h1 {
+    font-size: 28px;
+  }
+
+  .input-group {
+    padding: 10px 14px;
+  }
+
+  .confirm-btn {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .driver-section,
+  .rider-section,
+  .become-driver-section {
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .section-img {
+    width: 100%;
+    max-width: 358px;
+  }
+
+  .driver-text h2,
+  .rider-text h2,
+  .become-driver-text h2,
+  .safety-section h2 {
+    font-size: 24px;
+  }
+
+  .driver-text p,
+  .rider-text p,
+  .become-driver-text p,
+  .safety-section p {
+    font-size: 14px;
+  }
 }

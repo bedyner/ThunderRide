@@ -51,3 +51,20 @@ font-family: "Inter", sans-serif;
 .help-dropdown li:hover {
   color: #007bff;
 }
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .help-container {
+    top: 95px;
+    right: 14px;
+  }
+
+  .help-button {
+    padding: 7px 13px;
+    font-size: 14px;
+  }
+
+  .help-dropdown li {
+    font-size: 13px;
+  }
+}

@@ -53,33 +53,45 @@
 .stats-graph {
   background-color: #ffffff;
   border-radius: 16px;
-  padding: 24px;
+  padding: 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   margin-bottom: 24px;
   position: relative;
+  overflow: hidden;
 }
 
-.graph-placeholder {
-  height: 180px;
-  background-color: #f3f4f6;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-size: 14px;
+.graph-svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.graph-label {
+.graph-tooltip {
   position: absolute;
-  top: 32px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #facc15;
-  padding: 4px 8px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
+  background-color: #ffffff;
+  border: 2px solid #facc15;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #facc15;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.graph-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #facc15;
 }
 
 /* Recent Customers */
@@ -124,4 +136,98 @@
   font-size: 18px;
   font-weight: 500;
   color: #10b981;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE (< 768px)
+   ======================================== */
+@media (max-width: 768px) {
+  .stats-container {
+    padding: 16px;
+  }
+
+  .stats-header {
+    margin-bottom: 12px;
+  }
+
+  .stats-title {
+    font-size: 18px;
+  }
+
+  .stats-tabs {
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .stats-graph {
+    margin-bottom: 16px;
+  }
+
+  .graph-tooltip {
+    top: 15px;
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+
+  .stats-recent h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .customer-row {
+    padding: 12px 0;
+    margin-left: -10px;
+  }
+
+  .customer-info {
+    gap: 10px;
+  }
+
+  .customer-name {
+    font-size: 14px;
+  }
+
+  .customer-time {
+    font-size: 12px;
+  }
+
+  .customer-amount {
+    font-size: 16px;
+  }
+}
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .stats-container {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .stats-title {
+    font-size: 18px;
+  }
+
+  .tab {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .graph-tooltip {
+    font-size: 15px;
+  }
+
+  .customer-name {
+    font-size: 14px;
+  }
+
+  .customer-amount {
+    font-size: 15px;
+  }
 }

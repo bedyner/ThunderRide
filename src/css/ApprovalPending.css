@@ -1,0 +1,147 @@
+.approval-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+}
+
+.approval-header {
+  width: 100%;
+  height: 80px;
+  background-color: #ECBD35;
+  flex-shrink: 0;
+}
+
+.approval-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.approval-icon {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approval-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+}
+
+.approval-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4b5563;
+  margin: 0 0 8px 0;
+}
+
+.approval-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
+}
+
+.approval-footer {
+  padding: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.continue-button {
+  background-color: #ECBD35;
+  color: #000000;
+  border: none;
+  border-radius: 25px;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.continue-button:hover {
+  background-color: #d9a100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.continue-button:active {
+  transform: translateY(0);
+}
+
+.arrow {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .approval-header {
+    height: 70px;
+  }
+
+  .approval-title {
+    font-size: 24px;
+  }
+
+  .approval-subtitle {
+    font-size: 15px;
+  }
+
+  .approval-description {
+    font-size: 13px;
+  }
+
+  .continue-button {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+}
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .approval-container {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .approval-header {
+    height: 65px;
+  }
+
+  .approval-content {
+    padding: 32px 20px;
+  }
+
+  .approval-title {
+    font-size: 22px;
+  }
+
+  .approval-subtitle {
+    font-size: 14px;
+  }
+
+  .approval-description {
+    font-size: 12px;
+  }
+
+  .continue-button {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+}

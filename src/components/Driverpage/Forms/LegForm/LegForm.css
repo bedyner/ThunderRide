@@ -47,8 +47,21 @@
 .legal-checkbox {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-size: 14px;
+  margin-top: 8px;
+}
+
+.legal-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #ECBD35;
+}
+
+.legal-checkbox label {
+  margin-top: -2.5px; /* Move text up slightly for better visual alignment */
+  cursor: pointer;
 }
 
 .legal-btn {
@@ -61,4 +74,35 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* iPhone 12 Pro - 390x844px */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .legal-container {
+    max-width: 358px;
+    margin: 20px auto;
+    padding: 18px;
+  }
+
+  .legal-title {
+    font-size: 20px;
+  }
+
+  .legal-subtitle {
+    font-size: 13px;
+  }
+
+  .legal-label {
+    font-size: 13px;
+  }
+
+  .legal-input {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .legal-btn {
+    height: 42px;
+    font-size: 14px;
+  }
 }

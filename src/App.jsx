@@ -14,11 +14,13 @@ import { VehicleForm } from './pages/forms/VehicleForm';
 import { LegalForm } from './pages/forms/LegalForm';
 import { Upload } from './pages/forms/Upload';
 import { BankPage } from './pages/forms/BankPage';
-import DriverDashboard from './pages/main/DriverDashboard';
-import DriverPickup  from './pages/main/DriverPickup';
-import ChatScreen from './pages/main/ChatScreen';
 import ExpenseStats from './pages/main/ExpenseStats';
 import ProfileScreen from './pages/main/ProfileScreen';
+import DriverDashboard from './pages/main/DriverDashboard';
+import Profile from './components/Driverpage/Forms/Profile/Profile';
+import ApprovalPending from './pages/main/ApprovalPending';
+import ApplicationRejected from './pages/main/ApplicationRejected';
+import ApplicationAccepted from './pages/main/ApplicationAccepted';
 
 
 function App() {
@@ -46,15 +48,19 @@ function App() {
 
         <Route path="/form4" element={<BankPage/>} />
 
-        <Route path="/dashboard" element={<DriverDashboard />} />
+        <Route path="/dashboard" element={<DriverDashboard/>} />
 
         <Route path="/driver-profile" element={<ProfileScreen/>} />
 
-        <Route path="/driver-pickup" element={<DriverPickup/>} />
-
-        <Route path="/chat" element={<ChatScreen />} />
-
         <Route path="/expense-stats" element={<ExpenseStats />} />
+
+        <Route path="/profile" element={<Profile />} />
+
+        <Route path="/approval-pending" element={<ApprovalPending />} />
+
+        <Route path="/application-rejected" element={<ApplicationRejected />} />
+
+        <Route path="/application-accepted" element={<ApplicationAccepted />} />
 
 
       </Routes>

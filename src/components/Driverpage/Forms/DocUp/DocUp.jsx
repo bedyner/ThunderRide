@@ -1,33 +1,32 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './DocUp.css';
 
-function FileGroup({ label, description, accept, onFileSelect }) {
+function FileGroup({ label, bulletPoints, accept, onFileSelect }) {
   const [file, setFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
 
   const handleFileChange = (e) => {
     const f = e.target.files[0];
     if (!f) return;
     setFile(f);
     onFileSelect(true);
-
-    // preview เฉพาะรูป
-    if (accept === 'image' && f.type.startsWith('image/')) {
-      setPreviewUrl(URL.createObjectURL(f));
-    } else {
-      setPreviewUrl(null);
-    }
   };
 
   const acceptAttr = accept === 'pdf' ? '.pdf' : 'image/jpeg,image/png,image/webp';
 
   return (
-    <div style={{ marginBottom: 20 }}>
-      <h3>{label}</h3>
-      <p>{description}</p>
-      <input type="file" accept={acceptAttr} onChange={handleFileChange} />
-      {file && <p>เลือกไฟล์: {file.name}</p>}
-      {previewUrl && <img src={previewUrl} alt="preview" style={{ maxWidth: 200 }} />}
+    <div className="file-group">
+      <h3 className="file-group-title">{label}</h3>
+      <ul className="file-group-bullets">
+        {bulletPoints.map((point, idx) => (
+          <li key={idx}>{point}</li>
+        ))}
+      </ul>
+      <label className="upload-button">
+        อัปโหลดไฟล์
+        <input type="file" accept={acceptAttr} onChange={handleFileChange} style={{ display: 'none' }} />
+      </label>
+      {file && <p className="file-selected">✓ เลือกไฟล์: {file.name}</p>}
     </div>
   );
 }
@@ -37,72 +36,119 @@ export default function DocUp() {
   const [status, setStatus] = useState({
     driverLicense: false,
     driverSelfie: false,
-    publicDriverLicense: false,
-    thaiIdCard: false,
+    publicLicense: false,
+    nationalId: false,
+    criminalRecord: false,
     vehicleRegistration: false,
-    mandatoryInsurance: false,
+    compulsoryInsurance: false,
+    commercialInsurance: false,
+    vehicleSticker: false,
   });
 
   const allUploaded = Object.values(status).every(Boolean);
 
   const handleNext = () => {
     if (!allUploaded) {
-      alert('กรุณาเลือกไฟล์ให้ครบทุกเอกสารก่อน');
+      navigate('/application-rejected');
       return;
     }
-    // ไปหน้า form2
-    navigate('/form4');
+    navigate('/approval-pending'); // Final step - go to approval
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>อัปโหลดเอกสารสำคัญ</h2>
+    <div className="docup-container">
+      <h1 className="docup-title">เอกสารสำคัญ</h1>
+      <p className="docup-subtitle">
+        รับมอบการแสดกเอกสารที่ถูกต้องและรูปถ่ายคุณภาพพิเศษนั่น
+      </p>
+      <p className="docup-question">
+        ต้องการความช่วยเหลือในการรับเอกสารหรือไม่? <span className="link-text">คลิกที่นี่</span>
+      </p>
 
       <FileGroup
         label="ใบขับขี่"
-        description="กรุณาอัปโหลดไฟล์ PDF ของใบขับขี่ที่ยังไม่หมดอายุ แสดงชื่อและรูปชัดเจน ออกโดยกรมการขนส่งทางบก (DLT)"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปใบขับขี่ของคุณ ไฟล์สแกนเป็น PDF เป็นภาพสีสามารถใช้งานได้ รูปถ่ายของเอกสารจริงสามารถใช้งานได้ สำเนาใบขับขี่แบบขาวดำไม่สามารถใช้งานได้ ภาพหน้าจอจากแอปฯ DLT สามารถใช้งานได้ ใบขับขี่ที่ชำรุดเสียหาย ไม่สามารถใช้งานได้ ไม่เบลอหรือมีแสงสะท้อนบนบัตรจนไม่สามารถเห็นข้อมูลสำคัญ คนขับจะต้องมีอายุระหว่าง: 18-70 ปี คุณสามารถอัปโหลดใบขับขี่สาธารณะเข้ามาในช่องนี้เช่นกัน ภาพตัวอย่างเอกสารที่ถูกต้อง"
+        ]}
         accept="pdf"
         onFileSelect={(ok) => setStatus(s => ({ ...s, driverLicense: ok }))}
       />
 
       <FileGroup
-        label="รูปหน้าคนขับหรือตัวเอง"
-        description="อัปโหลดรูปโปรไฟล์ที่เห็นใบหน้าชัดเจน ตรงกับบัตรประชาชนและใบขับขี่ เป็นภาพล่าสุด สีชัด ไม่แก้ไข ไม่รวมคนอื่น"
+        label="รูปหน้าคนขับ หรือ ภาพถ่ายตนเอง"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปโปรไฟล์ของคุณ เป็นภาพบุคคลเดียวกัน กับรูปในบัตรประชาชน ใบขับขี่ส่วนบุคคล และใบขับขี่สาธารณะ มองเห็นดวงตาได้ชัดเจน ไม่สวมแว่นกันแดด และไม่มีเงาสะท้อนบังตาดำ ไม่สวมหมวกหรือหน้ากากปิดบังใบหน้า สามารถสวมใส่เครื่องนุ่งห่มทางศาสนาและแว่นสายตาได้ ไม่ถอดเสื้อ แต่งกายสุภาพ เป็นภาพสี และ ไม่มืดจนเกินไป ไม่มีบุคคลอื่นๆอยู่ในพื้นหลัง เป็นภาพต้นฉบับเท่านั้น ไม่ถ่ายหน้าจอมาจากแอพพลิเคชั่นอื่น ไม่มีตัวอักษรอยู่บนรูปภาพ  ไม่ใส่ฟิลเตอร์จนภาพไม่ชัดเจน"
+        ]}
         accept="image"
         onFileSelect={(ok) => setStatus(s => ({ ...s, driverSelfie: ok }))}
       />
 
       <FileGroup
         label="ใบขับขี่สาธารณะ"
-        description="อัปโหลด PDF สแกนใบขับขี่สาธารณะ ออกโดย DLT ยังไม่หมดอายุ ข้อมูลสำคัญชัดเจน (ประเภท: 2, 3, 4 ตามข้อกำหนด)"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปใบขับขี่สาธารณะของคุณ ไฟล์สแกนเป็น PDF เป็นภาพสีสามารถใช้งานได้ รูปถ่ายของเอกสารจริงสามารถใช้งานได้ สำเนาใบขับขี่แบบขาวดำไม่สามารถใช้งานได้ ภาพหน้าจอจากแอปฯ DLT สามารถใช้งานได้ ใบขับขี่ที่ชำรุดเสียหาย ไม่สามารถใช้งานได้ ไม่เบลอหรือมีแสงสะท้อนบนบัตรจนไม่สามารถเห็นข้อมูลสำคัญต้องเป็นหนึ่งในประเภทใบขับขี่สาธารณะตามกฎหมายกำหนดเท่านั้น ใบอนุญาตขับรถจักรยานยนต์สาธารณะ ใบอนุญาตขับรถยนต์สาธารณะ ใบอนุญาตเป็นผู้ขับรถทุกประเภทชนิดที่ 2, 3, 4"
+
+        ]}
         accept="pdf"
-        onFileSelect={(ok) => setStatus(s => ({ ...s, publicDriverLicense: ok }))}
+        onFileSelect={(ok) => setStatus(s => ({ ...s, publicLicense: ok }))}
       />
 
       <FileGroup
         label="บัตรประจำตัวประชาชน"
-        description="อัปโหลด PDF สแกนบัตรประชาชนไทย ยังไม่หมดอายุ และข้อมูลชัดเจน (ไม่รับบัตรต่างชาติ)"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปโปรไฟล์ของคุณ เป็นภาพหน้าคนขับเดี่ยวกับบัตรประชาชนและใบขับขี่ ใบขับขี่ส่วนบุคคลและใบขับขี่สาธารณะบอกเพื่อเป็นการระบุตัวตนของคุณได้ใช้ตัดเอง ไม่สามารถเป็นคนอื่นได้ ไม่สามารถมีใช้รูปครอบครัวหรือภาพกลุ่มหรือภาพที่มีคนอื่นปรากฏ สามารถมีใช้รูปของคนทางการหาคนสำคัญได้ ไม่ปรากฏคนอื่นและไม่ปรากฏเด็ก และไม่ปรากฏสะท้อนบนกระจกไม่สามารถอัปโหลดรูปของคนอื่นหรือเด็กได้ ไม่ปรากฏวัตถุอื่นๆ เป็นภาพ และไม่ปรากฏเด็กเกินไปหรือคุณรูปภาพ ไม่ควรใช้ภาพที่เอาจากเอกสารอื่นๆ ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป"
+        ]}
         accept="pdf"
-        onFileSelect={(ok) => setStatus(s => ({ ...s, thaiIdCard: ok }))}
+        onFileSelect={(ok) => setStatus(s => ({ ...s, nationalId: ok }))}
+      />
+
+      <FileGroup
+        label="เอกสารการตรวจสอบประวัติอาชญากรรม"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปเอกสารการตรวจสอบประวัติอาชญากรรมของคุณเห็นชื่อ-นามสกุลชัดเจน เห็นประวัติอาชญากรรมชัดเจน"
+        ]}
+        accept="pdf"
+        onFileSelect={(ok) => setStatus(s => ({ ...s, criminalRecord: ok }))}
       />
 
       <FileGroup
         label="เอกสารการจดทะเบียนยานพาหนะ"
-        description="อัปโหลด PDF สแกนทะเบียนรถ (หน้า-หลัง) ยังไม่หมดอายุ และข้อมูลชัดเจน"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปโปรไฟล์ของคุณ เป็นภาพหน้าคนขับเดี่ยวกับบัตรประชาชนและใบขับขี่ ใบขับขี่ส่วนบุคคลและใบขับขี่สาธารณะบอกเพื่อเป็นการระบุตัวตนของคุณได้ใช้ตัดเอง ไม่สามารถเป็นคนอื่นได้ ไม่สามารถมีใช้รูปครอบครัวหรือภาพกลุ่มหรือภาพที่มีคนอื่นปรากฏ สามารถมีใช้รูปของคนทางการหาคนสำคัญได้ ไม่ปรากฏคนอื่นและไม่ปรากฏเด็ก และไม่ปรากฏสะท้อนบนกระจกไม่สามารถอัปโหลดรูปของคนอื่นหรือเด็กได้ ไม่ปรากฏวัตถุอื่นๆ เป็นภาพ และไม่ปรากฏเด็กเกินไปหรือคุณรูปภาพ ไม่ควรใช้ภาพที่เอาจากเอกสารอื่นๆ ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป"
+        ]}
         accept="pdf"
         onFileSelect={(ok) => setStatus(s => ({ ...s, vehicleRegistration: ok }))}
       />
 
       <FileGroup
         label="ประกันภาคบังคับ (พรบ.)"
-        description="อัปโหลดเอกสารประกันภาคบังคับสำหรับรถรับจ้างผ่านระบบอิเล็กทรอนิกส์/เชิงพาณิชย์/รถรับจ้างสาธารณะ เนื้อหาและเงื่อนไขชัดเจน"
+        bulletPoints={[
+          "กรุณาอัปโหลดรูปโปรไฟล์ของคุณ เป็นภาพหน้าคนขับเดี่ยวกับบัตรประชาชนและใบขับขี่ ใบขับขี่ส่วนบุคคลและใบขับขี่สาธารณะบอกเพื่อเป็นการระบุตัวตนของคุณได้ใช้ตัดเอง ไม่สามารถเป็นคนอื่นได้ ไม่สามารถมีใช้รูปครอบครัวหรือภาพกลุ่มหรือภาพที่มีคนอื่นปรากฏ สามารถมีใช้รูปของคนทางการหาคนสำคัญได้ ไม่ปรากฏคนอื่นและไม่ปรากฏเด็ก และไม่ปรากฏสะท้อนบนกระจกไม่สามารถอัปโหลดรูปของคนอื่นหรือเด็กได้ ไม่ปรากฏวัตถุอื่นๆ เป็นภาพ และไม่ปรากฏเด็กเกินไปหรือคุณรูปภาพ ไม่ควรใช้ภาพที่เอาจากเอกสารอื่นๆ ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป ไม่ปรากฏวัตถุอื่นๆ เป็นภาพเฟดเดอร์เกินไป"
+        ]}
         accept="pdf"
-        onFileSelect={(ok) => setStatus(s => ({ ...s, mandatoryInsurance: ok }))}
+        onFileSelect={(ok) => setStatus(s => ({ ...s, compulsoryInsurance: ok }))}
       />
 
-      <hr />
-      <button onClick={handleNext}>Next</button>
-      {!allUploaded && <p style={{ color: 'red' }}>กรุณาเลือกไฟล์ให้ครบก่อนกด Next</p>}
+      <FileGroup
+        label="ประกันรถยนต์เชิงพาณิชย์"
+        bulletPoints={[
+          "สำหรับรถยนต์เท่านั้น กรุณาอัปโหลดเอกสารประกันรถยนต์เชิงพาณิชย์ของคุณ ต้องเห็นข้อมูลชัดเจน ช่องการใช้รถต้องระบุว่ารถยนต์รับจ้างผ่านระบบอิเล็กทรอนิกส์ ใช้เพื่อการพาณิชย์หรือรถรับจ้างสาธารณะ" 
+        ]}
+        accept="pdf"
+        onFileSelect={(ok) => setStatus(s => ({ ...s, commercialInsurance: ok }))}
+      />
+
+      <FileGroup
+        label="สติ๊กเกอร์รถยนต์รับจ้างผ่าน
+        ระบบอิเล็กทรอนิกส์"
+        bulletPoints={[
+          "สำหรับรถยนต์ 4 ล้อเท่านั้น กรุณาอัปโหลดรูปสติ๊กเกอร์รถยนต์รับจ้างผ่านระบบอิเล็กทรอนิกส์คุณ เป็นรูปสี เห็นข้อมูลชัดเจน สติ๊กเกอร์ยังไม่หมดอายุ"
+        ]}
+        accept="pdf"
+        onFileSelect={(ok) => setStatus(s => ({ ...s, vehicleSticker: ok }))}
+      />
+
+        <button type="button" className="btn-primary" onClick={handleNext}>Next</button>
     </div>
   );
 }
